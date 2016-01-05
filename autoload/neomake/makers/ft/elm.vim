@@ -9,7 +9,7 @@ function! neomake#makers#ft#elm#elmmake()
     let mapexpr = 'substitute(v:val, "\",\"subregion.*,\"details\":\""," ", "g")'
     return {
         \ 'exe': 'elm-make',
-        \ 'args': ['--report=json', '--output=/dev/null'],
+        \ 'args': ['--report=json', '--output=' . neomake#utils#DevNull()],
         \ 'mapexpr': mapexpr,
         \ 'errorformat':
             \ '[{"tag":"%.%#"\,' .
